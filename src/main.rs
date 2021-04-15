@@ -4,18 +4,17 @@ fn main() {
     println!("Hello, world!");
 }
 
+use mockall_double::double;
+#[double]
 use thing::Thing;
 
 fn do_stuff(thing: &Thing) -> u32 {
-    thing.foo()
+    thing.some
 }
 
 #[cfg(test)]
 mod test {
     use super::*;
-    #[double]
-    use crate::thing::Thing;
-    use mockall_double::double;
 
     #[test]
     fn test_foo() {
